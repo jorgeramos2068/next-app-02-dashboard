@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <div>
-      <h1>Counter page</h1>
+      <h1>Main Page</h1>
     </div>
   );
 }
