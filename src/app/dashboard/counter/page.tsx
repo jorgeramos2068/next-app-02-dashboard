@@ -1,7 +1,18 @@
+import * as React from 'react';
+import { Metadata } from 'next';
+
+import { CartCounter } from '@/components/shopping-cart';
+
+export const metadata: Metadata = {
+  title: 'Shopping Cart',
+  description: 'Description for Shopping Cart Dashboard',
+};
+
 export default function Page() {
   return (
-    <div>
-      <h1>Counter page</h1>
+    <div className="flex flex-col items-center justify-center w-full h-full">
+      <span>Products in your cart</span>
+      <CartCounter />
     </div>
   );
 }
