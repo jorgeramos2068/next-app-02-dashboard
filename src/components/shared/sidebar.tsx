@@ -1,10 +1,13 @@
 import * as React from 'react';
 import Image from 'next/image';
 
-import { IoBrowsersOutline, IoCalculator, IoLogoReact } from 'react-icons/io5';
+import { IoBrowsersOutline, IoCalculator, IoFootball, IoLogoReact } from 'react-icons/io5';
 
 import { MenuItem } from '@/interfaces';
 import { SidebarMenuItem } from './sidebar-menu-item';
+import { BiFootball } from 'react-icons/bi';
+import { CiFootball } from 'react-icons/ci';
+import { FaFootball } from 'react-icons/fa6';
 
 const menuItems: MenuItem[] = [
   {
@@ -18,6 +21,12 @@ const menuItems: MenuItem[] = [
     icon: <IoCalculator size={40} />,
     title: 'Counter',
     subtitle: 'Client-side Counter',
+  },
+  {
+    path: '/dashboard/pokemons',
+    icon: <IoFootball size={40} />,
+    title: 'Pokemons',
+    subtitle: 'Static Generation',
   },
 ];
 
