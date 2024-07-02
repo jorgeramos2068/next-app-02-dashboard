@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Metadata } from 'next';
 
-import { CartCounter } from '@/components/shopping-cart';
+import { CartCounter } from '@/app/dashboard/counter/_components/shopping-cart';
 
 export const metadata: Metadata = {
   title: 'Shopping Cart',
