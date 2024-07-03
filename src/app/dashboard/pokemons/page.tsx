@@ -9,6 +9,7 @@ const getPokemons = async (limit: number = 20, offset: number = 0): Promise<Simp
     id: pokemon.url.split('/').at(-2) ?? '',
     name: pokemon.name,
   }));
+
   return pokemons;
 };
 
