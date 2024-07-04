@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { Pokemon } from '@/interfaces';
 
 const getPokemon = async (id: string): Promise<Pokemon> => {
@@ -11,12 +13,21 @@ interface Props {
   params: { id: string };
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id, name } = await getPokemon(params.id);
+
+  return {
+    title: `Pokemons | ${name}`,
+    description: `Page for ${name} with id = ${id}`,
+  };
+}
+
 export default async function Page({ params }: Props) {
   const pokemon = await getPokemon(params.id);
 
   return (
     <div>
-      <h1>Pokemon: {params.id}</h1>
+      <h1>Pokemon: {pokemon.name}</h1>
     </div>
   );
 }
