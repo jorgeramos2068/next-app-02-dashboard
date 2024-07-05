@@ -4,12 +4,13 @@ import * as React from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/stores';
 import { decrement, increment, initState } from '@/stores/counter/counter-slice';
+import { getApiCounter } from '@/helpers/functions';
 
 interface Props {
   initialValue?: number;
 }
 
-export const CartCounter: React.FC<Props> = ({ initialValue = 0 }) => {
+export const CartCounter: React.FC<Props> = () => {
   const count = useAppSelector(state => state.counter.count);
   const dispatch = useAppDispatch();
 
@@ -22,8 +23,8 @@ export const CartCounter: React.FC<Props> = ({ initialValue = 0 }) => {
   };
 
   React.useEffect(() => {
-    dispatch(initState(initialValue));
-  }, [dispatch, initialValue]);
+    getApiCounter().then(({ count }) => dispatch(initState(count)));
+  }, [dispatch, initState]);
 
   return (
     <>
