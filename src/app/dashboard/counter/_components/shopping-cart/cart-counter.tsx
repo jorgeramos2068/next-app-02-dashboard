@@ -2,23 +2,32 @@
 
 import * as React from 'react';
 
-export const CartCounter: React.FC = () => {
-  const [counter, setCounter] = React.useState(10);
+import { useAppDispatch, useAppSelector } from '@/stores';
+import { decrement, increment, initState } from '@/stores/counter/counter-slice';
+
+interface Props {
+  initialValue?: number;
+}
+
+export const CartCounter: React.FC<Props> = ({ initialValue = 0 }) => {
+  const count = useAppSelector(state => state.counter.count);
+  const dispatch = useAppDispatch();
 
   const handleIncrement = (): void => {
-    setCounter(previous => previous + 1);
+    dispatch(increment());
   };
 
   const handleDecrement = (): void => {
-    setCounter(previous => {
-      const newValue = previous - 1;
-      return newValue >= 0 ? newValue : 0;
-    });
+    dispatch(decrement());
   };
+
+  React.useEffect(() => {
+    dispatch(initState(initialValue));
+  }, [dispatch, initialValue]);
 
   return (
     <>
-      <span className="text-9xl">{counter}</span>
+      <span className="text-9xl">{count}</span>
       <div className="flex">
         <button
           className="flex items-center justify-center p1- rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] mr-2"

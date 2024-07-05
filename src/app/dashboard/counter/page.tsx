@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
       <span>Products in your cart</span>
-      <CartCounter />
+      <CartCounter initialValue={20} />
     </div>
   );
 }
