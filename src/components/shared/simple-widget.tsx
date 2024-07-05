@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Link from 'next/link';
 
 import { IoCafeOutline } from 'react-icons/io5';
 
@@ -32,13 +33,13 @@ export const SimpleWidget: React.FC<Props> = ({ title, subtitle, label, icon, hr
             </div>
           </div>
         </div>
-        <div className="w-full place-items-end text-right border-t-2 border-gray-100 mt-2">
-          {href && (
-            <a href={href} className="text-indigo-600 text-xs font-medium">
+        {href && (
+          <div className="w-full place-items-end text-right border-t-2 border-gray-100 mt-2">
+            <Link href={href} className="text-indigo-600 text-xs font-medium">
               More
-            </a>
-          )}
-        </div>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
