@@ -13,10 +13,20 @@ const initialState: PokemonsState = {
 export const pokemonsSlice = createSlice({
   name: 'pokemons',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleFavorite(state, action: PayloadAction<SimplePokemon>) {
+      const pokemon = action.payload;
+      const { id } = pokemon;
+      if (!!state[id]) {
+        delete state[id];
+      } else {
+        state[id] = pokemon;
+      }
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
-export const {} = pokemonsSlice.actions;
+export const { toggleFavorite } = pokemonsSlice.actions;
 
 export default pokemonsSlice.reducer;
