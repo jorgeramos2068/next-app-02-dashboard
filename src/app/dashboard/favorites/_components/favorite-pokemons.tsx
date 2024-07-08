@@ -7,8 +7,7 @@ import { useAppSelector } from '@/stores';
 import { NoFavorites } from './no-favorites';
 
 export const FavoritePokemons = () => {
-  const favoritePokemons = useAppSelector(store => Object.values(store.pokemons));
-  const [pokemons, setPokemons] = React.useState(favoritePokemons);
+  const favoritePokemons = useAppSelector(store => Object.values(store.pokemons.favorites));
 
-  return <>{pokemons.length > 0 ? <PokemonGrid pokemons={pokemons} /> : <NoFavorites />}</>;
+  return <>{favoritePokemons.length > 0 ? <PokemonGrid pokemons={favoritePokemons} /> : <NoFavorites />}</>;
 };

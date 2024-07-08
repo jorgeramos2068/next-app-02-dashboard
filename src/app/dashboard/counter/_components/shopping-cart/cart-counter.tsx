@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/stores';
-import { decrement, increment, initState } from '@/stores/counter/counter-slice';
+import { decrement, increment, initState } from '@/stores/slices/counter/counter.slice';
 import { getApiCounter } from '@/helpers/functions';
 
 interface Props {

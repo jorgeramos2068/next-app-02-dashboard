@@ -8,7 +8,7 @@ import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 
 import { SimplePokemon } from '@/interfaces';
 import { useAppDispatch, useAppSelector } from '@/stores';
-import { toggleFavorite } from '@/stores/pokemons/pokemons-slice';
+import { toggleFavorite } from '@/stores/slices/pokemons/pokemons.slice';
 
 interface Props {
   pokemon: SimplePokemon;
@@ -16,7 +16,7 @@ interface Props {
 
 export const PokemonCard: React.FC<Props> = ({ pokemon }) => {
   const { id, name } = pokemon;
-  const isFavorite = useAppSelector(state => !!state.pokemons[id]);
+  const isFavorite = useAppSelector(state => !!state.pokemons.favorites[id]);
   const dispatch = useAppDispatch();
 
   const handleToggle = () => {
