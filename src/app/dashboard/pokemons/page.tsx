@@ -1,5 +1,5 @@
+import { PokemonGrid } from '@/components/pokemons';
 import { getPokemons } from '@/helpers/functions';
-import { PokemonGrid } from './_components/pokemon-grid';
 
 export default async function Page() {
   const pokemons = await getPokemons(151, 0);
